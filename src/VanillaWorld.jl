@@ -1,5 +1,5 @@
 module VanillaWorld
 
-# Write your package code here.
+include("extra/sampler.jl")
 
 end
