@@ -3,8 +3,27 @@ uuid = "890a6884-3078-43a5-8445-0f7842e240aa"
 authors = ["Jun Tian <tianjun.cpp@gmail.com> and contributors"]
 version = "1.0.0-DEV"
 
+[deps]
+Adapt = "79e6a3ab-5dfb-504d-930d-738a2a938a0e"
+BlockArrays = "8e7c35d0-a365-5155-bbbb-fb81a777f24e"
+CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
+CUDAKernels = "72cfdca4-0801-4ab0-bf6a-d52aa10adc57"
+ColorTypes = "3da002f7-5984-5a60-b8a6-cbb66c0b333f"
+Configurations = "5218b696-f38b-4ac9-8b61-a12ec717816d"
+FastPow = "c0e83750-1142-43a8-81cf-6c956b72b4d1"
+FileIO = "5789e2e9-d7fb-5bc7-8068-2c6fae9b9549"
+ImageIO = "82e4d734-157c-48bb-816b-45c225c6df19"
+KernelAbstractions = "63c18a36-062a-441e-b654-da1e3ab1ce7c"
+REPL = "3fa0cd96-eef1-5676-8a61-b3b8758bbffb"
+Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
+ReinforcementLearningBase = "e575027e-6cd6-5018-9292-cdc6200d2b44"
+StructArrays = "09ab397b-f2b6-538f-b94a-2f83cf4a842a"
+Term = "22787eb5-b846-44ae-b979-8e399b8463ab"
+YAML = "ddb6d928-2868-570f-bddf-ab3f9cf99eb6"
+
 [compat]
-julia = "1.6"
+julia = "1.9"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
