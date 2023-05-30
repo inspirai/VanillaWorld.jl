@@ -393,12 +393,11 @@ function is_on_bed(I::CartesianIndex{2}, c::Config, m::Model, i::Int)
     #     push!(all_res,res)
     # end
     # true in all_res
-    all_pos = []
     for aid in 1:size(m.agents, 1)
         pos = m.agents.bed_pos[aid, i]
-        push!(all_pos, pos)
+        pos == I && return true
     end
-    I in all_pos
+    false
 end
 
 function is_illegal_water(I::CartesianIndex{2}, c::Config)
@@ -577,20 +576,22 @@ function RLBase.reset!(i::Int, t::Terrain, m::Model, c::Config)
         # end
     end
     V = c.legal_farmland_range
-    all_farmland_pos = []
-    for num in 1:size(m.agents, 1)
-        row = rand(H÷2-V:H÷2+V)
-        col = rand(W÷2-V:W÷2+V)
-        I = CartesianIndex(row, col)
-        while I in all_farmland_pos || is_within_campfire(I, c) || is_within_merchant(I, c) || is_on_bed(I, c, m, i)
-            row = rand(H÷2-V:H÷2+V)
-            col = rand(W÷2-V:W÷2+V)
-            I = CartesianIndex(row, col)
-        end
-        push!(all_farmland_pos, I)
-        m.agents.farmland_pos[num, i] = I
-        t.id[I, i] = id_of(t, :farmland)
-    end
+
+    ## FIXME: random shuffle on GPU
+    # all_farmland_pos = []
+    # for num in 1:size(m.agents, 1)
+    #     row = rand(H÷2-V:H÷2+V)
+    #     col = rand(W÷2-V:W÷2+V)
+    #     I = CartesianIndex(row, col)
+    #     while I in all_farmland_pos || is_within_campfire(I, c) || is_within_merchant(I, c) || is_on_bed(I, c, m, i)
+    #         row = rand(H÷2-V:H÷2+V)
+    #         col = rand(W÷2-V:W÷2+V)
+    #         I = CartesianIndex(row, col)
+    #     end
+    #     push!(all_farmland_pos, I)
+    #     m.agents.farmland_pos[num, i] = I
+    #     t.id[I, i] = id_of(t, :farmland)
+    # end
 end
 
 function RLBase.reset!(i::Int, s::StructArray{GlobalState}, m::Model, c::Config)

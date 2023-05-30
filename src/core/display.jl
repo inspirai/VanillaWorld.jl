@@ -93,7 +93,7 @@ function Base.show(io::IO, mime::MIME"text/plain", m::ModelSlice)
 
     s_global_view = join((join(r) for r in eachrow(sgv)), "\n")
     main_panel = Panel(
-        TextBox(s_global_view, fit=true) / Table(readable_pairs_time(model.state[m.i]), columns_style=["green", "red"], columns_justify=[:right, :left], box=:SIMPLE, compact=true, show_header=false);
+        TextBox(s_global_view, fit=true) / Table(readable_pairs(model.state[m.i]), columns_style=["green", "red"], columns_justify=[:right, :left], box=:SIMPLE, compact=true, show_header=false);
         fit=true,
         title="Global View",
         subtitle="$(size(sgv))",
@@ -136,7 +136,7 @@ function Base.show(io::IO, mime::MIME"text/plain", m::ModelSlice)
     ]
 
     p = Panel(
-        main_panel * grid(local_panel); # main_panel / grid(local_panel);
+        main_panel / grid(local_panel); # main_panel / grid(local_panel);
         fit=true,
         title="Model on $(nameof(typeof(device_of(m.m))))",
         subtitle="$(m.i)-th frame",
