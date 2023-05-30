@@ -33,13 +33,15 @@ This project is our attempt to build a research platform for exploring how to cr
 
 - GPU Native
   - The environments are written in pure Julia code. By utilizing
-    KernelAbstractions.jl, the environments can be executed on many different
-    devices (on both CPU and GPU). The best efficiency is achieved when policy
-    and environment are executed on the same accelerator.
-  - With the help of DLPack, the internal observation of environments can be
-    shared across different Deep Learning platforms.  Extensive examples are
-    provided to help users understand how to use these environments in different
-    Reinforcement Learning packages.
+    [KernelAbstractions.jl](https://github.com/JuliaGPU/KernelAbstractions.jl),
+    the environments can be executed on many different devices (on both CPU and
+    GPU). The best efficiency is achieved when policy and environment are
+    executed on the same accelerator.
+  - With the help of [DLPack](https://github.com/pabloferz/DLPack.jl), the
+    internal observation of environments can be shared across different Deep
+    Learning platforms.  Extensive examples are provided to help users
+    understand how to use these environments in different Reinforcement Learning
+    packages.
 
 - Massive Agents
   - Several builtin environments demonstrate that millions of agents can be
@@ -50,7 +52,7 @@ This project is our attempt to build a research platform for exploring how to cr
     Recording wrappers are also provided to help analysis and debug policies.
 
 - Composability
-  - Thanks to multiple dispatch provided by Julia. We can easily create new
+  - Thanks to **multiple dispatch** provided by Julia. We can easily create new
     environments by reusing existing components as much as possible.
   
 ## Resources
