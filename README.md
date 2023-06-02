@@ -59,11 +59,7 @@ This project is our attempt to build a research platform for exploring how to cr
 
 Talks:
 
-- TODO: Add link to slides.
-
-Demo Videos
-
-- TODO: Add links
+- [Building Efficient Multi-Agent Simulation Environments](https://docs.google.com/presentation/d/1Eid8Gwp1uwVE_k64zZGe2azfalo1Y3aoqM_jS7MzcOQ/edit?usp=sharing)
 
 ## Related Environments
 
